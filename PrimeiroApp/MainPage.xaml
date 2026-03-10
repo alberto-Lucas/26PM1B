@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PrimeiroApp.MainPage">
+    <StackLayout Padding="30">
+        <Label Text="Olá Mundo!"/>        
+        <StackLayout Padding="10"/>  <!-- /Br -->
+
+        <Label Text="Start" 
+               HorizontalOptions="Start"/>
+
+        <Label Text="Center" 
+               HorizontalOptions="Center"/>
+
+        <Label Text="End" 
+               HorizontalOptions="End"/>
+        
+        <!-- Simular um alinha horizontal de componente-->
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+            <Button BackgroundColor="Red"/>
+            <Button BackgroundColor="Green"/>
+            <Button BackgroundColor="Blue"/>
+        </StackLayout>
+
+        <StackLayout Padding="10"/>
+        <!-- /Br -->
+
+        <StackLayout Orientation="Horizontal">
+            <Button BackgroundColor="Red"
+                    HorizontalOptions="StartAndExpand"/>
+            <Button BackgroundColor="Green"
+                    HorizontalOptions="Center"/>
+            <Button BackgroundColor="Blue"
+                    HorizontalOptions="EndAndExpand"/>
+        </StackLayout>
+
+        <Label Text="Start Vertical"
+               VerticalOptions="Start"/>
+
+        <Label Text="Center Vertical"
+               VerticalOptions="CenterAndExpand"/>
+
+        <Label Text="End Vertical"
+               VerticalOptions="End"/>
+
+
+        <StackLayout Padding="10"/>
+        
+        <!-- Simular ao TextBox-->
+
+        <Entry Placeholder="Digite aqui."
+               x:Name="txtExemplo"/>
+
+        <Button Text="Clique aqui"
+                Margin="0, 10"
+                BackgroundColor="Grey"
+                TextColor="White"
+                FontSize="20"
+                Clicked="btnCliqueAqui_Clicked"/>
+
+
+    </StackLayout>
+</ContentPage>
