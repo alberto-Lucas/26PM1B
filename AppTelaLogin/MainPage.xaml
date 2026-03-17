@@ -32,7 +32,27 @@
                 <StackLayout Padding="10"/>
                 <Label Text="Senha:"/>
                 <Entry x:Name="txtSenha"
-                       Placeholder="Senha"/>
+                       Placeholder="Senha"
+                       IsPassword="True"/>
+
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="ckbSenha"
+                              Color="Blue"
+                              CheckedChanged="ckbSenha_Checked"/>
+                    <Label Text="Mostrar Senha"
+                           VerticalTextAlignment="Center">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer 
+                                Tapped="lblSenha_Tapped"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+
+                <StackLayout Padding="10"/>
+                <Button Text="Entrar"
+                        BackgroundColor="Blue"
+                        TextColor="White"
+                        Clicked="btnEntrar_Clicked"/>
             </StackLayout>
         </Frame>        
     </StackLayout>
