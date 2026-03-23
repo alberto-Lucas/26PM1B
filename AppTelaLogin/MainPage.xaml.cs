@@ -14,6 +14,29 @@
             if (txtUsuario.Text == "admin" &&
                 txtSenha.Text == "admin")
             {
+                //Com usuaro e senha corretos
+                //Podemos adicionar o login
+                //na classe singleton
+
+                //Para isso precisamos 
+                //criar uma variavel para
+                //referenciar a classe
+                //como o tipo da classe podera variar
+                //iremos criar uma classe do tipo variavel
+                //ela ira se adequar com o valor retornardo
+                //ou seja
+                //uma variavel var sera moldado
+                //pelo dado inserido
+                //se for string, ira virar string
+                //se for UsuarioLogado ira vira UsuarioLogado
+                //ou seja uma variavel coringa
+                //atribuir a instancia da singleton a variavel
+                var usuarioLogado = UsuarioLogado.Instancia;
+                //Agora só atribuir os dados desejados
+                //segue o mesmo principio de uma classe normal
+                usuarioLogado.Login = txtUsuario.Text;
+
+
                 //Iremos chamar pgPrincipal
                 //Iremos acessar camadas da aplicação
                 //para alterar a tela q está sendo exibida
