@@ -18,14 +18,23 @@ public partial class pgPrincipal : ContentPage
 		lblUsuario.Text =
 			"Olá " + usuarioLogado.Login +
 			", seja bem-vindo!";
-	}
 
-    private void btnVoltar_Clicked(object sender, EventArgs e)
+		//Carregar os dados do usuário
+		var usuarioSingleton = UsuarioSingleton.Instancia;
+
+		lblNome.Text = usuarioSingleton.Usuario.Nome;
+		lblEmail.Text = usuarioSingleton.Usuario.Email;
+		lblLogin.Text = usuarioSingleton.Usuario.Login;
+		lblDtNascimento.Text = usuarioSingleton.Usuario.DtNascimento;
+
+    }
+
+    private void Voltar_Tapped(object sender, TappedEventArgs e)
     {
-		//Para voltar precisamos remover
-		//a pagina atual da pilha
-		//ou seja aplicar um POP
-		Application.Current.MainPage.
-			Navigation.PopAsync();
+        //Para voltar precisamos remover
+        //a pagina atual da pilha
+        //ou seja aplicar um POP
+        Application.Current.MainPage.
+            Navigation.PopAsync();
     }
 }

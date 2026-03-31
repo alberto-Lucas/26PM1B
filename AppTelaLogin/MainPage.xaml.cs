@@ -9,10 +9,25 @@
 
         private void btnEntrar_Clicked(object sender, EventArgs e)
         {
-            //Validação simples com admin admin
+            //Validação de campo nullo ou vazio
+            //devido o default da classe singleton
+            if(string.IsNullOrEmpty(txtUsuario.Text) ||
+                string.IsNullOrEmpty(txtSenha.Text))
+            {
+                DisplayAlert(
+                    "Atenção!", 
+                    "Preencha os dados de login.", "Ok");
+                return; //Aborta a execução se um dos campos vazio
+            }
 
-            if (txtUsuario.Text == "admin" &&
-                txtSenha.Text == "admin")
+            //Ajustar a validação de login
+            //para utilizar os dados cadastrados
+
+            //Chamar a classe singleton
+            var usuarioSingleton = UsuarioSingleton.Instancia;
+
+            if (txtUsuario.Text == usuarioSingleton.Usuario.Login &&
+                txtSenha.Text == usuarioSingleton.Usuario.Senha)
             {
                 //Com usuaro e senha corretos
                 //Podemos adicionar o login
@@ -85,6 +100,13 @@
             //dele mesmo
 
             ckbSenha.IsChecked = !ckbSenha.IsChecked;
+        }
+
+        private void Cadastro_Tapped(object sender, TappedEventArgs e)
+        {
+            //Chamar a tela de cadastro
+            Application.Current.MainPage.
+                Navigation.PushAsync(new pgCadastro());
         }
     }
 }

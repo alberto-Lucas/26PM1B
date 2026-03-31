@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppTelaLogin.pgCadastro"
+             Title="pgCadastro">
+    <!--Habilitar scroll da pagina-->
+    <ScrollView>
+        <StackLayout Padding="10">
+            <Frame BackgroundColor="DarkSlateGrey"
+                   CornerRadius="10">
+                <StackLayout>
+                    <Label Text="Cadastro"
+                           FontSize="25"/>
+
+                    <StackLayout Padding="20"/>
+
+                    <Label Text="Nome:"/>
+                    <Entry x:Name="txtNome"
+                           Placeholder="Nome"/>
+                    <StackLayout Padding="10"/>
+
+                    <Label Text="Email:"/>
+                    <Entry x:Name="txtEmail"
+                           Placeholder="Email"/>
+                    <StackLayout Padding="10"/>
+
+                    <Label Text="Login:"/>
+                    <Entry x:Name="txtLogin"
+                           Placeholder="Login"/>
+                    <StackLayout Padding="10"/>
+
+                    <Label Text="Senha:"/>
+                    <Entry x:Name="txtSenha"
+                           Placeholder="Senha"/>
+                    <StackLayout Padding="10"/>
+
+                    <Label Text="Confirmar Senha:"/>
+                    <Entry x:Name="txtConfirmarSenha"
+                           Placeholder="Confirmar Senha"/>
+                    <StackLayout Padding="10"/>
+
+                    <Label Text="Data Nascimento:"/>
+                    <Entry x:Name="txtDtNascimento"
+                           Placeholder="Data Nascimento"/>
+                    <StackLayout Padding="10"/>
+
+                    <Button Text="Salvar"
+                            FontSize="15"
+                            Clicked="btnSalvar_Clicked"/>
+                </StackLayout>
+            </Frame>    
+        </StackLayout>    
+    </ScrollView>
+</ContentPage>
