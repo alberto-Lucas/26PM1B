@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppListView.MainPage">
+    <StackLayout>
+        <!--Cadastro-->
+        <StackLayout Padding="5">
+            <Label Text="Nome:"/>
+            <Entry x:Name="txtNome"
+                   Placeholder="Nome"
+                   ClearButtonVisibility="WhileEditing"/>
+            <StackLayout Padding="5"/>
+
+            <Label Text="Idade:"/>
+            <Entry x:Name="txtIdade"
+                   Placeholder="Idade"
+                   ClearButtonVisibility="WhileEditing"/>
+            <StackLayout Padding="5"/>
+
+            <Button Text="Adicionar a Lista"
+                    FontSize="20"
+                    Clicked="btnAdicionar_Clicked"/>
+        </StackLayout>
+        <!--Exibição do cadastro atravé do componente
+        ListView basicamente uma Visulização em 
+        formato de lista-->
+        <StackLayout>
+            <ListView x:Name="lsvDados">
+                <!--Configurar fonte de dados-->
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <!--Configurar a célula de 
+                        visualização-->
+                        <ViewCell>
+                            <!--Aqui iremos usar os componente
+                            normalmente-->
+                            <!--Utilizar frame, para exibir em 
+                            formato de cards, o uso do fram
+                            é opcicional-->
+                            <Frame CornerRadius="10"
+                                   BackgroundColor="#414142"
+                                   Padding="10"
+                                   Margin="0, 5"> <!--Espaçamento entre cards-->
+                                <StackLayout>
+                                    <!--Vincular a label com a fonte de dados
+                                    preciso usar o nome dos campos corretamente
+                                    utilizando CaseSensitive-->
+                                    <Label Text="{Binding Nome}"
+                                           FontSize="20"
+                                           FontAttributes="Bold"/>
+                                    <Label Text="{Binding Idade}"/>
+                                </StackLayout>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>
