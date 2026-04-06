@@ -73,11 +73,62 @@ namespace AppListView
         public MainPage()
         {
             InitializeComponent();
+            //Ao abrir o aplicativo
+            //iremos conectar no banco de dados
+            //e exibir os registro na listView
+
+            //Abriar a conexão
+            conexao = GetConnection();
+
+            //Mapear a classe para criar a tabela
+            conexao.CreateTable<Pessoa>();
+
+            //Atualizar a List View
+            AtualizarListView();
+        }
+
+        //Método para atualizar a listView
+        //de acordo com o BD
+        void AtualizarListView()
+        {
+            //Realizar um select na tabela Pessoa
+            //Semelhante a query
+            //SELECT * FROM Pessoa
+            lsvDados.ItemsSource =
+                conexao.Table<Pessoa>().ToList();
         }
 
         private void btnAdicionar_Clicked(object sender, EventArgs e)
         {
+            //Iremos adicionar o registro
+            //no banco de dados
 
+            string nome = txtNome.Text;
+            string idade = txtIdade.Text;
+
+            //Validar se os campos foram preenchidos
+            if(string.IsNullOrEmpty(nome) ||
+                string.IsNullOrEmpty(idade))
+            {
+                DisplayAlert("Atençao", 
+                    "Pro favor, preencha o campos corretamente.", "Ok");
+                return; //Abortar a execução
+            }
+
+            //Precisamos popular o objeto Pessoa
+            Pessoa pessoa = new Pessoa(); 
+            pessoa.Nome = nome; //ou passar o txt.Text direto
+            pessoa.Idade = idade;
+
+            //Inserir o registro no BD
+            conexao.Insert(pessoa);
+
+            //Atualizar a lista
+            AtualizarListView();
+
+            //Limpar os campos da tela
+            txtNome.Text = "";
+            txtIdade.Text = "";
         }
     }
 }
