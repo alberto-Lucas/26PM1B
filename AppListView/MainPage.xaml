@@ -25,7 +25,8 @@
         ListView basicamente uma Visulização em 
         formato de lista-->
         <StackLayout>
-            <ListView x:Name="lsvDados">
+            <ListView x:Name="lsvDados"
+                      ItemTapped="lsvDados_Tapped"> <!--Evento a clicar no registro-->
                 <!--Configurar fonte de dados-->
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -49,6 +50,13 @@
                                            FontSize="20"
                                            FontAttributes="Bold"/>
                                     <Label Text="{Binding Idade}"/>
+                                    <Button Text="Apagar"
+                                            Clicked="btnApagar_Clicked"
+                                            CommandParameter="{Binding .}"/>
+                                    <!--CommandParameter é a forma de passar o registro
+                                    do .xaml para o cs ou seja da parte visual 
+                                    para o código c# utilizo o ponto (.) 
+                                    para recuperar o registro selecionada atual-->
                                 </StackLayout>
                             </Frame>
                         </ViewCell>

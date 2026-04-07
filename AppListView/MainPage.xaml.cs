@@ -1,6 +1,7 @@
 ﻿using PCLExt.FileStorage.Folders;
 using SQLite;
 using System.ComponentModel.DataAnnotations;
+using System.Threading.Tasks;
 
 namespace AppListView
 {
@@ -129,6 +130,95 @@ namespace AppListView
             //Limpar os campos da tela
             txtNome.Text = "";
             txtIdade.Text = "";
+        }
+
+        private void lsvDados_Tapped(object sender, ItemTappedEventArgs e)
+        {
+            //Sender = componente(Ex: ListView)
+            //e = valor, no caso o item da lista
+
+            //Precisamo manipular o nosso item
+            //ou seja o e
+            //Para isso primeiro é nescessario
+            //validar se o item é do tipo de dados
+            //correto, ou seja se o item é do tipo Pessoa
+
+            //Comprar se o e.Item é do tipo objeto Pessoa
+            //is significa é
+            //E se for do tipo de dados correto
+            //ja atribuo essa informação a variavel
+            //Ou seja se o Item selecionado for Pessoa
+            //atribuo o conteudo dele a variavel pessoa
+            if(e.Item is Pessoa pessoa)
+            {
+                //Exibir os dados do registro
+
+                string mensagem =
+                    "Registro: " + pessoa.Id.ToString() +
+                    Environment.NewLine + //Quebra de Linha
+                    "Nome: " + pessoa.Nome +
+                    Environment.NewLine +
+                    "Idade: " + pessoa.Idade;
+
+                DisplayAlert(
+                    "Detalhes do cadastro", mensagem, "Ok");
+
+                //Limpar seleção do item
+                //Para isso preciso acessar o componente
+                //Acesso o componente pelo sender
+                //e defino tipo de dados do componente
+                //neste caso um ListView
+                //defino null para remover a seleção do item
+                ((ListView)sender).SelectedItem = null;
+            }
+
+        }
+
+        private async void btnApagar_Clicked(object sender, EventArgs e)
+        {
+            //Seguir a mesma logica da rotina de visualização
+            //Ao clicar no botão apagar do registro
+            //iremos disparar a rotina de exclusão
+            //Porém como a lista ja possui um evento Tapped
+            //irá ocorre conflito do clique do botão apagar
+            //com o visualizar
+            //Para executar somente o botão apagar
+            //é preciso identificar a origina
+            //do evento, ou seja se é originado de um button
+            //e tambem precisamos recuperar o registro selecionado
+            //via parametro o sejo o nosso ponto (.)
+            if(sender is Button botao &&
+                botao.CommandParameter is Pessoa pessoa)
+            {
+                //Apresentar mensagem de confirmação para o usuário
+                //Iremos utilizar um displayAlert com opção
+                //de Sim ou Não
+                //o retorno padrão do Display alerta é TRUE
+                //do primeiro botão, ou seja o primeiro botão
+                //SEMPRE deve ser o SIM
+
+                //Utilizar o async com await, para não travar
+                //a aplicação enquanto o usuário não responde
+
+                //A mensagem será exibida de forma assincrona
+                //ou seja em segundo plano, assim não trava
+                //a execução principal do aplicativo
+                //e o await é usado para recuperar a resposta
+                //Adicionar o async no método
+                //Ex: private async void btnApagar_Clicked(..);
+                bool resposta =
+                    await DisplayAlert(
+                        "Confirmação",
+                        "Deseja realmente excluir este item?",
+                        "Sim", 
+                        "Cancelar");
+
+                if(resposta)
+                {
+                    conexao.Delete(pessoa);
+                    AtualizarListView();
+                }
+            }
         }
     }
 }
