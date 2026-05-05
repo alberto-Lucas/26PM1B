@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppCaraCoroa.MainPage"
+             BackgroundColor="#2E2E2E">
+
+    <ScrollView>
+        <StackLayout Padding="10">
+            <Label Text="Cara ou Coroa"
+                   FontSize="26"
+                   HorizontalTextAlignment="Center"/>
+
+            <Image Source="coin.png"
+                   HeightRequest="200"
+                   x:Name="imgCoin"/>
+
+            <StackLayout Padding="10"/>
+
+            <Label Text="Jogador:" FontSize="16" Margin="5, 0"/>
+            <Entry x:Name="txtJogador" Placeholder="Nome Jogador"/>
+            <StackLayout Padding="10"/>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Pontuação: " Margin="5, 0"/>
+                <Label x:Name="lblPontuacao"
+                       FontSize="16"
+                       Text="10"
+                       FontAttributes="Bold"/>
+            </StackLayout>
+            <StackLayout Padding="10"/>
+
+            <Frame BackgroundColor="#1e1e1e"
+                   CornerRadius="10">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                    <StackLayout Orientation="Horizontal">
+                        <CheckBox x:Name="ckbCara"
+                                  CheckedChanged="ckbCara_CheckedChanged"/>
+                        <Label Text="Cara"
+                               VerticalTextAlignment="Center"
+                               FontSize="24"
+                               FontAttributes="Bold"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Margin="30, 0">
+                        <CheckBox x:Name="ckbCoroa"
+                                  CheckedChanged="ckbCoroa_CheckedChanged"/>
+                        <Label Text="Coroa"
+                               VerticalTextAlignment="Center"
+                               FontSize="24"
+                               FontAttributes="Bold"/>
+                    </StackLayout>
+                </StackLayout>                
+            </Frame>
+            <StackLayout Padding="10"/>
+
+            <Button Text="Jogar"
+                    FontSize="20"
+                    Clicked="btnJogar_Clicked"/>
+            <StackLayout Padding="10"/>
+
+            <Frame BackgroundColor="#1e1e1e" CornerRadius="10">
+                <StackLayout HorizontalOptions="CenterAndExpand">
+                    <Label Text="Resultado Moeda:"/>
+                    <Label x:Name="lblResultadoMoeda" FontSize="20" FontAttributes="Bold" 
+                           HorizontalTextAlignment="Center"/>
+                    <StackLayout Padding="10"/>
+
+                    <Label Text="Resultado Aposta:"/>
+                    <Label x:Name="lblResultadoAposta" FontSize="20" FontAttributes="Bold"
+                           HorizontalTextAlignment="Center"/>
+                </StackLayout>
+            </Frame>
+            <StackLayout Padding="10"/>
+
+            <Button Text="Reiniciar"
+                    Clicked="btnReiniciar_Clicked"/>
+            <StackLayout Padding="10"/>
+
+            <Label Text="Jogadas"
+                   FontSize="22"
+                   HorizontalTextAlignment="Center"/>
+            <ListView x:Name="lsvLista">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame CornerRadius="10"
+                                   BackgroundColor="#424242"
+                                   Padding="10"
+                                   Margin="0, 5">
+                                <StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Jogador:" FontAttributes="Bold"/>
+                                        <Label Text="{Binding Jogador}" Margin="5, 0"/>
+                                    </StackLayout>
+
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Data/Hora:" FontAttributes="Bold"/>
+                                        <Label Text="{Binding DtHora}" Margin="5, 0"/>
+                                    </StackLayout>
+
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Moeda da Aposta:" FontAttributes="Bold"/>
+                                        <Label Text="{Binding MoedaAposta}" Margin="5, 0"/>
+                                    </StackLayout>
+
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Resultado da Moeda:" FontAttributes="Bold"/>
+                                        <Label Text="{Binding ResultadoMoeda}" Margin="5, 0"/>
+                                    </StackLayout>
+
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Resultado da Aposta:" FontAttributes="Bold"/>
+                                        <Label Text="{Binding ResultadoApostaTexto}" Margin="5, 0"/>
+                                    </StackLayout>
+
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Pontuação:" FontAttributes="Bold"/>
+                                        <Label Text="{Binding Pontuacao}" Margin="5, 0"/>
+                                    </StackLayout>
+                                </StackLayout>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
