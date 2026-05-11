@@ -28,8 +28,6 @@ namespace AppCaraCoroa
             return new SQLiteConnection(arquivoDB.Path);
         }
 
-        //EXTRA
-        //Método para girar a imagem da moeda
         public MainPage()
         {
             InitializeComponent();
@@ -45,6 +43,8 @@ namespace AppCaraCoroa
             Animation();
         }
 
+        //EXTRA
+        //Método para girar a imagem da moeda
         async Task Animation()
         {
             while (true)
