@@ -3,42 +3,21 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppMVC.Views.pgVisualizarPessoaView"
              Title="pgVisualizarPessoaView">
-    <StackLayout Padding="5">
+    <StackLayout>
         <Button Text="Voltar"
                 Clicked="btnVoltar_Clicked"/>
 
-        <Label Text="Cadastro"
-               FontSize="20"
-               HorizontalTextAlignment="Center"/>
-
-        <StackLayout Padding="10"/>
-        <Label Text="Nome"/>
-        <Entry x:Name="txtNome"/>
-        
-        <StackLayout Padding="5"/>
-        
-        <Label Text="CPF"/>
-        <Entry x:Name="txtCPF"/>
-        
-        <StackLayout Padding="5"/>
-
-        <Button Text="Adicionar Imagem"
-                Clicked="btnAddImagem_Clicked"/>
-
-        <Button Text="Remover Imagem"
-                Clicked="btnRemoverImagem_Clicked"
-                IsVisible="False"
-                x:Name="btnRemoverImagem"/>
+        <Label Text="Id:"/>
+        <Label x:Name="lblId" FontSize="20"/>
+        <Label Text="Nome:"/>
+        <Label x:Name="lblNome" FontSize="20"/>
+        <Label Text="CPF:"/>
+        <Label x:Name="lblCPF" FontSize="20"/>
 
         <Image x:Name="imgCadastro"
                MaximumHeightRequest="300"
                MaximumWidthRequest="300"
                HorizontalOptions="Center"
                VerticalOptions="Center"/>
-
-        <StackLayout Padding="5"/>
-
-        <Button Text="Salvar"
-                Clicked="btnSalvar_Clicked"/>
     </StackLayout>
 </ContentPage>
