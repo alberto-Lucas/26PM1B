@@ -3,42 +3,44 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppMVC.Views.pgCadPessoaView"
              Title="pgCadPessoaView">
-    <StackLayout Padding="5">
-        <Button Text="Voltar"
-            Clicked="btnVoltar_Clicked"/>
+    <ScrollView>
+        <StackLayout Padding="5">
+            <Button Text="Voltar"
+                Clicked="btnVoltar_Clicked"/>
 
-        <Label Text="Cadastro"
-           FontSize="20"
-           HorizontalTextAlignment="Center"/>
+            <Label Text="Cadastro"
+               FontSize="20"
+               HorizontalTextAlignment="Center"/>
 
-        <StackLayout Padding="10"/>
-        <Label Text="Nome"/>
-        <Entry x:Name="txtNome"/>
+            <StackLayout Padding="10"/>
+            <Label Text="Nome"/>
+            <Entry x:Name="txtNome"/>
 
-        <StackLayout Padding="5"/>
+            <StackLayout Padding="5"/>
 
-        <Label Text="CPF"/>
-        <Entry x:Name="txtCPF"/>
+            <Label Text="CPF"/>
+            <Entry x:Name="txtCPF"/>
 
-        <StackLayout Padding="5"/>
+            <StackLayout Padding="5"/>
 
-        <Button Text="Adicionar Imagem"
-            Clicked="btnAddImagem_Clicked"/>
+            <Button Text="Adicionar Imagem"
+                Clicked="btnAddImagem_Clicked"/>
 
-        <Button Text="Remover Imagem"
-            Clicked="btnRemoverImagem_Clicked"
-            IsVisible="False"
-            x:Name="btnRemoverImagem"/>
+            <Button Text="Remover Imagem"
+                Clicked="btnRemoverImagem_Clicked"
+                IsVisible="False"
+                x:Name="btnRemoverImagem"/>
 
-        <Image x:Name="imgCadastro"
-           MaximumHeightRequest="300"
-           MaximumWidthRequest="300"
-           HorizontalOptions="Center"
-           VerticalOptions="Center"/>
+            <Image x:Name="imgCadastro"
+               MaximumHeightRequest="300"
+               MaximumWidthRequest="300"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"/>
 
-        <StackLayout Padding="5"/>
+            <StackLayout Padding="5"/>
 
-        <Button Text="Salvar"
-            Clicked="btnSalvar_Clicked"/>
-    </StackLayout>
+            <Button Text="Salvar"
+                Clicked="btnSalvar_Clicked"/>
+        </StackLayout>
+    </ScrollView>
 </ContentPage>
